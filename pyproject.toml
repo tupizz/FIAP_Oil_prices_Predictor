@@ -15,9 +15,9 @@ scikit-learn = "^1.4.2"
 imbalanced-learn = "^0.12.2"
 streamlit = "^1.34.0"
 lxml = "^5.2.1"
-tensorflow = "^2.16.1"
-keras = "^3.3.3"
 statsmodels = "^0.14.2"
+keras = "^3.3.3"
+tensorflow = "^2.16.1"
 
 
 [build-system]
