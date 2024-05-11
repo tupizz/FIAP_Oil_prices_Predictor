@@ -20,7 +20,7 @@ def prepare_input(data):
 
 # Main app function
 def main():
-    st.title("Time Series Forecasting")
+    st.title("🔎 Time Series Forecasting (Brent Oil Prices)")
 
     # Load data
     data = load_data()
@@ -29,11 +29,23 @@ def main():
     # set index
     data.set_index('Date', inplace=True)
 
-    # Display data as a table and a line chart
-    st.write("Recent Oil Price Data:")
-    st.dataframe(data.tail())
+    st.write("## Brent Oil Price since Jan/2023")
+    st.line_chart(data)
 
-    st.write("Oil Price Trend:")
+    # Display data as a table and a line chart
+    st.write("## Most recent Brent Oil Prices: (-5 days)")
+    st.dataframe(data.tail().sort_values('Date', ascending=False))
+
+    st.write("## Oil Price Trend:")
+    st.write("Reason for the up high trend in brent Prices in 2023")
+    st.write("""
+    > On June 4, 2023, OPEC+ members announced they would extend crude oil production cuts through the end of 2024. The cuts had been set to expire at the end of 2023. Following the June 4 meeting, Saudi Arabia announced an additional voluntary oil production cut of 1.0 million barrels per day (b/d) for July (with the option to extend) in addition to the OPEC+ cuts.
+    > In early September, Saudi Arabia announced it would extend the country’s voluntary production cuts through the end of 2023. U.S. commercial crude oil inventories fell and on September 29, 2023 were at the lowest point since December 2, 2022. The limited supply provided upward pressure on crude oil prices, and on September 28, the price of Brent reached its high for the year, at \\$98/b.
+    > After declining from the September highs, crude oil prices increased again in early October after the Israel-Hamas conflict began; the price of Brent reached \\$91/b on October 9.
+    
+    Source: https://www.eia.gov/todayinenergy/detail.php?id=61142
+    """)
+
     fig, ax = plt.subplots()
     ax.plot(data.index, data['Price'], label='Price')
     ax.set_title("Oil Prices Over Time")
@@ -46,8 +58,7 @@ def main():
     fig.set_size_inches(15, 5)
     st.pyplot(fig)
 
-    st.write("Data Visualization:")
-    st.line_chart(data)
+
 
     # Prepare input data for prediction
     last_3_days = prepare_input(data)
