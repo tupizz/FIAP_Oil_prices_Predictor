@@ -1,4 +1,8 @@
 
+### Github
+
+https://github.com/tupizz/FIAP_Oil_prices_Predictor
+
 ### Streamlit
 
 https://fiap-oil-price-prediction.streamlit.app/
