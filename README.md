@@ -24,5 +24,5 @@ https://fiap-oil-price-prediction.streamlit.app/
     # save to csv
     df.to_csv('../data/brent_crude_oil_prices.csv', index=False)
   ```
-- `notebook/analysis.ipynb` - This is where the main data analysis was done.
+- `notebook/analysis.ipynb` - This is where the main data analysis was done, and the LSTM model was created.
 - `app.py` - This is the Streamlit app that was created to visualize the data, and show the model being used.
